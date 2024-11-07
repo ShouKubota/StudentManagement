@@ -21,7 +21,7 @@ public class StudentManagementApplication {
 
 	@GetMapping("/studentInfo")
 	public String getStudentInfo(){
-		return name + " " + age + "歳" + name2 + " " + age2 + "歳";
+		return name + " " + age + "歳" + " " + name2 + " " + age2 + "歳";
 	}
 
 	@PostMapping("/studentInfo")
