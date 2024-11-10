@@ -13,7 +13,7 @@ public class StudentManagementApplication {
 	private String name = "Kubota Shou";
 	private String age = "24";
 	private String name2 = "Satou Tarou";
-	private String age2 = "36";
+	private String age2 = "45";
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementApplication.class, args);
