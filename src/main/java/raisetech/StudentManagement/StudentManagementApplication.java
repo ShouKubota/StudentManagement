@@ -26,17 +26,17 @@ public class StudentManagementApplication {
 	@GetMapping("/student")
 	public String getStudent(@RequestParam String name){
 		Student student = repository.searchByName(name);
-		return student.getName() + " " + student.getAge() + "歳";
+		return student.getName() + " " + student.getAge() + "歳" + " " + student.getGender() + " " + student.getRegion();
 	}
 
 	@PostMapping("/student")
-	public void registerStudent(String name, int age){
-		repository.registerStudent(name,age);
+	public void registerStudent(String name, int age, String gender, String region){
+		repository.registerStudent(name,age,gender,region);
 	}
 
 	@PatchMapping("/student")
-	public void updateStudentName(String name, int age){
-		repository.updateStudent(name,age);
+	public void updateStudentName(String name, int age, String gender, String region){
+		repository.updateStudent(name,age,gender,region);
 	}
 
 	@DeleteMapping("/student")
