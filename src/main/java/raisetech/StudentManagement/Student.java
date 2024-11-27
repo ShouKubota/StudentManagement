@@ -2,7 +2,7 @@ package raisetech.StudentManagement;
 
 public class Student {
 
-  private  String name;
+  private String name;
   private int age;
   private String gender;
   private String region;
@@ -23,19 +23,19 @@ public class Student {
     this.age = age;
   }
 
-  public String getGender(){
+  public String getGender() {
     return gender;
   }
 
-  public void setGender(String gender){
-    this.gender =gender;
+  public void setGender(String gender) {
+    this.gender = gender;
   }
 
-  public String getRegion(){
+  public String getRegion() {
     return getRegion();
   }
 
-  public void setRegion(String region){
-    this.region =region;
+  public void setRegion(String region) {
+    this.region = region;
   }
 }
