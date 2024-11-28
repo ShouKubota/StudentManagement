@@ -16,31 +16,32 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentManagementApplication {
 
-	@Autowired
-	private  StudentRepository repository;
+  @Autowired
+  private StudentRepository repository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(StudentManagementApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(StudentManagementApplication.class, args);
+  }
 
-	@GetMapping("/student")
-	public String getStudent(@RequestParam String name){
-		Student student = repository.searchByName(name);
-		return student.getName() + " " + student.getAge() + "歳";
-	}
+  @GetMapping("/student")
+  public String getStudent(@RequestParam String name) {
+    Student student = repository.searchByName(name);
+    return student.getName() + " " + student.getAge() + "歳" + " " + student.getGender() + " "
+        + student.getRegion();
+  }
 
-	@PostMapping("/student")
-	public void registerStudent(String name, int age){
-		repository.registerStudent(name,age);
-	}
+  @PostMapping("/student")
+  public void registerStudent(String name, int age, String gender, String region) {
+    repository.registerStudent(name, age, gender, region);
+  }
 
-	@PatchMapping("/student")
-	public void updateStudentName(String name, int age){
-		repository.updateStudent(name,age);
-	}
+  @PatchMapping("/student")
+  public void updateStudentName(String name, int age, String gender, String region) {
+    repository.updateStudent(name, age, gender, region);
+  }
 
-	@DeleteMapping("/student")
-	public void deleteStudent(String name){
-		repository.deleteStudent(name);
-	}
+  @DeleteMapping("/student")
+  public void deleteStudent(String name) {
+    repository.deleteStudent(name);
+  }
 }
