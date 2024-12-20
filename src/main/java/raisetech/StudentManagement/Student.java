@@ -14,5 +14,5 @@ public class Student {
   private int age;
   private String gender;
   private String mailaddress;
-  private  String region;
+  private String region;
 }
