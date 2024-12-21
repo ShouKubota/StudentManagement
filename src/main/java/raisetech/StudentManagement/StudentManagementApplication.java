@@ -23,7 +23,7 @@ public class StudentManagementApplication {
     return repository.search();
   }
 
-  @GetMapping("/StudentscoursesList")
+  @GetMapping("/studentscoursesList")
   public List<Studentscourses> getStudentcoursesList() {
     return repository.searchStudentsCourses();
   }
