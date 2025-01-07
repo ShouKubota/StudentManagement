@@ -31,8 +31,7 @@ public class StudentService {
     return repository.StudentsCourses();
   }
 
-  public List<Studentscourses>
-  searchJavaCourseInfo(){
+  public List<Studentscourses> searchJavaCourseInfo(){
     return repository.StudentsCourses().stream()
         .filter(course -> course.getCourseName().equals("Javaコース"))
         .collect(Collectors.toList());
