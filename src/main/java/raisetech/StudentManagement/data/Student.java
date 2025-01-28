@@ -12,9 +12,10 @@ public class Student {
   private String name;
   private String nickname;
   private int age;
-  private String gender;
-  private String mailAddress;
-  private String region;
+  private String sex;
+  private String email;
+  private String area;
   private String remark;
   private boolean isDeleted;
+  private String kanaName;
 }

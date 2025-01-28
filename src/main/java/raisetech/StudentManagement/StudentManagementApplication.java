@@ -14,6 +14,8 @@ import raisetech.StudentManagement.data.Student;
 import raisetech.StudentManagement.data.StudentsCourses;
 import raisetech.StudentManagement.repository.StudentRepository;
 
+
+
 @SpringBootApplication
 public class StudentManagementApplication {
 	public static void main(String[] args) {
