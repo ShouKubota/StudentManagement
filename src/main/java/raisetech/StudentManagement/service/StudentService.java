@@ -28,11 +28,11 @@ public class StudentService {
   }
 
   public List<StudentsCourses> searchStudentcoursesList() {
-    return repository.StudentsCourses();
+    return repository.studentsCourses();
   }
 
   public List<StudentsCourses> searchJavaCourseInfo(){
-    return repository.StudentsCourses().stream()
+    return repository.studentsCourses().stream()
         .filter(course -> course.getCourseName().equals("Javaコース"))
         .collect(Collectors.toList());
   }
