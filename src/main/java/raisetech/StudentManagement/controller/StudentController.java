@@ -50,9 +50,6 @@ public class StudentController {
     return service.searchJavaCourseInfo();
   }
 
-  private static List<StudentDetail> getStudentDetails(List<StudentDetail> studentDetails) {
-    return studentDetails;
-  }
 
   @GetMapping("/newStudent")
   public String newStudent(Model model) {
