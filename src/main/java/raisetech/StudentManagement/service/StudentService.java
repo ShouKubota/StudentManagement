@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import raisetech.StudentManagement.data.Student;
@@ -26,20 +25,17 @@ public class StudentService {
     return repository.search();
   }
 
-  public List<Student> search30yearOldStudents() {
-    return repository.search().stream()
-        .filter(student -> student.getAge() >= 30 && student.getAge() <= 39).toList();
+  public StudentDetail searchStudent(String id){
+    Student student = repository.searchStudent(id);
+    List<StudentsCourses> studentsCourses = repository.searchStudentsCourses(student.getId());
+    StudentDetail studentDetail = new StudentDetail();
+    studentDetail.setStudent(student);
+    studentDetail.setStudentsCourses(studentsCourses);
+    return studentDetail;
   }
 
-
-  public List<StudentsCourses> searchStudentcoursesList() {
-    return repository.StudentsCourses();
-  }
-
-  public List<StudentsCourses> searchJavaCourseInfo() {
-    return repository.StudentsCourses().stream()
-        .filter(course -> course.getCourseName().equals("Javaコース"))
-        .collect(Collectors.toList());
+  public List<StudentsCourses> searchStudentsCourseList() {
+    return repository.searchStudentsCoursesList();
   }
 
   @Transactional
@@ -50,6 +46,14 @@ public class StudentService {
       studentsCourses.setStartTime(LocalDateTime.now());
       studentsCourses.setEndTime(LocalDateTime.now().plusYears(1));
       repository.registerStudentsCourses(studentsCourses);
+    }
+  }
+
+  @Transactional
+  public void updateStudent(StudentDetail studentDetail) {
+    repository.updateStudent(studentDetail.getStudent());
+    for (StudentsCourses studentsCourses : studentDetail.getStudentsCourses()) {
+      repository.updateStudentsCourses(studentsCourses);
     }
   }
 }
