@@ -12,7 +12,6 @@ import raisetech.StudentManagement.data.StudentCourse;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class StudentDetail {
   private Student student;
   private List<StudentCourse> studentCourseList;
